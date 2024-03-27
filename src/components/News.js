@@ -4,8 +4,10 @@ import NewsItem from './NewsItem';
 export default class News extends Component {
     page = 1;
     total = 18;
+    apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2023-08-27&sortBy=publishedAt&apiKey=a739161e504a48c9a50c4e316b85272e`;
     // apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2023-06-17&sortBy=publishedAt&apiKey=a739161e504a48c9a50c4e316b85272e`;
-    apiUrl = `https://newsapi.org/v2/everything?q=apple&from=2023-07-16&to=2023-07-16&sortBy=popularity&apiKey=a739161e504a48c9a50c4e316b85272e&page=${this.page}&pageSize=09`;
+    // apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2023-07-27&sortBy=publishedAt&apiKey=a739161e504a48c9a50c4e316b85272e&page=${this.page}&pageSize=09`
+    // apiUrl = `https://newsapi.org/v2/everything?q=apple&from=2023-07-16&to=2023-07-16&sortBy=popularity&apiKey=a739161e504a48c9a50c4e316b85272e&page=${this.page}&pageSize=09`;
 
     constructor() {
         super();
@@ -24,7 +26,8 @@ export default class News extends Component {
     }
 
     fetchIt = async ()=> {
-        this.apiUrl = `https://newsapi.org/v2/everything?q=apple&from=2023-07-16&to=2023-07-16&sortBy=popularity&apiKey=a739161e504a48c9a50c4e316b85272e&page=${this.page}&pageSize=09`;
+        // this.apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2023-07-16&to=2023-07-16&sortBy=popularity&apiKey=a739161e504a48c9a50c4e316b85272e&page=${this.page}&pageSize=09`;
+        this.apiUrl = `https://newsapi.org/v2/everything?q=tesla&from=2023-06-17&sortBy=publishedAt&apiKey=a739161e504a48c9a50c4e316b85272e`;
         let data = await fetch(`${this.apiUrl}`);
         let DATA = await data.json();
         this.setState({article : DATA.articles});
